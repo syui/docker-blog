@@ -5,5 +5,7 @@ services:
 
 script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO which m.zsh
+  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO which m.zsh;
+  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO which youtube-vl;
+  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO which blogger-cl;
 
