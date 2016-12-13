@@ -4,7 +4,8 @@ services:
   - docker
 
 script:
-  - docker build -it $DOCKER_TEARM/$DOCKER_REPO which m.zsh;which youtube-vl
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker build -it $DOCKER_USERNAME/$DOCKER_REPO which m.zsh;which youtube-vl
     #  - docker build -it $DOCKER_TEARM/$DOCKER_REPO m.zsh mp
     #  - docker build -it $DOCKER_TEARM/$DOCKER_REPO youtube-vl p
     #  - docker build -it $DOCKER_TEARM/$DOCKER_REPO blogger-cl a
