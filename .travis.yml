@@ -5,7 +5,6 @@ services:
 
 script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO date
   - docker run -it $DOCKER_USERNAME/$DOCKER_REPO pull.zsh;
   - docker run -it $DOCKER_USERNAME/$DOCKER_REPO m.zsh hugo;
   - docker run -it $DOCKER_USERNAME/$DOCKER_REPO m.zsh mp;
