@@ -4,9 +4,9 @@ services:
   - docker
 
 script:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO blog-update;
-
-notifications:
-  slack:
-    secure: WD7KqpO88lY8mcWycm6blFe7Z9WI/UsxgQpQ45efj8X8yeDQkjhpnU4+1H7o65TquV+NWOX130TAopHW3riebiZaZJYOQYTB0nWsLFipBrn3davmSjZmmvxivUyY0+DRyqyQVMS1jtuoFaXbLsLwtRsEMX66y83IN9fGR2oE9AXTx9v9q5vdfmVo5udAfRSiH3eXg9oXbU7HZ9XJSVckpicxsfdgiwAzFsF/iTdTZXk58XKMzIV7amplmFUf76dYfvuVbxN2SkP+uyPrNnuq5fBeeGIhAOXDRi50ZpeIhrKy9gz9mz6vwsf6gjMOmOjo/40FunBjG760jthZNEx8oNxhDEVk5kJygi+YqL4/qSRkRS+hcKW1Za5JQS4TNzomC0zDWZ59LnnIUOkFkcwd4ZhSkbW6JXyZKnonQBoynlt2fPfS+XLaLtEiShiSyLjGA9faDovB1xr6klv32SO2lfnl+SBZk6PfHknMwNYt0x/xtkA1b7oDtUfSMz1fhfR9z5bCz16ItxEgKPSzGk0NTrzmcWGRXcQyfw+4RZR4vhHeQSger72Wqc/XaXT7xIiVOBf+gkcBPROI9izPu7CG/cRlvpaHo1BReIAsztCP7qYucjWeXpDgMaw20mXX1T2be82/EORHktXWGF/qzyMHfJg/YVW/K6plsdryg8loG9o=
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO adl;
+  - export ID=`docker ps -a -q`;
+  - docker stop $ID;
+  - docker commit $ID $DOCKER_USERNAME/$DOCKER_REPO;
+  - docker push $DOCKER_USERNAME/$DOCKER_REPO;
