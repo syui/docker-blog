@@ -5,7 +5,7 @@ services:
 
 script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO adl;
+  - docker run -it $DOCKER_USERNAME/$DOCKER_REPO adl j -s 2 -d;
   - export ID=`docker ps -a -q`;
   - docker stop $ID;
   - docker commit $ID $DOCKER_USERNAME/$DOCKER_REPO;
